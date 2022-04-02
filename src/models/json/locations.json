@@ -1,0 +1,18 @@
+{
+  "locations": [
+    {
+      "name": "Dublin",
+      "latitude": "53.3",
+      "longitude": "-6.3",
+      "userid": "4bf62104-5ae8-463c-bb71-ee8cc0bf850a",
+      "_id": "70c42379-8d66-4580-b236-47c5c913301a"
+    },
+    {
+      "name": "Cork",
+      "latitude": "51.9",
+      "longitude": "-8.5",
+      "userid": "4bf62104-5ae8-463c-bb71-ee8cc0bf850a",
+      "_id": "0793eeae-3eb5-4695-8d69-7350625d5282"
+    }
+  ]
+}

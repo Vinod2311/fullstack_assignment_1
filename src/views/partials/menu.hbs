@@ -1,0 +1,44 @@
+<nav class="ui menu">
+    <header class="ui header item"><a href="/"> Place of interest </a></header>
+    <header class="item"> Vinod &trade; &reg;</header>
+    <div class="right menu">
+
+        {{#if user}}
+            <a id="dashboard" class="item" href="/dashboard"> Dashboard </a>
+            <a id="aboutLoggedIn" class="item" href="/about"> About </a>
+            <a id="logout" class="item" href="/logout"> Logout </a>
+
+        {{else}}
+            <a id="about" class="item" href="/about"> About </a>
+            <a id="signup" class="item" href="/signup"> Signup </a>
+            <a id="login" class="item" href="/login"> Login </a>
+        {{/if}}
+
+    </div>
+</nav>
+
+<script>
+    $("#{{id}}").addClass("active item");
+</script>
+
+<!--
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    {{> brand}}
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button" id="login" href="/login"> Log in </a> <a class="button" id="signup" href="/signup"> Sign
+          up </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.getElementById("{{active}}").classList.add("is-primary");
+</script>
+-->
