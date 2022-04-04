@@ -21,36 +21,22 @@ export const UserSpecPlus = UserSpec.keys({
 
 export const UserArray = Joi.array().items(UserSpecPlus).label("UserArray");
 
-export const TrackSpec = Joi.object()
+export const LocationSpec = Joi.object()
   .keys({
-    title: Joi.string().required().example("Piano Sonata No. 7"),
-    artist: Joi.string().required().example("Beethoven"),
-    duration: Joi.number().allow("").optional().example(12),
-    playlistid: IdSpec,
-  })
-  .label("Track");
-
-export const TrackSpecPlus = TrackSpec.keys({
-  _id: IdSpec,
-  __v: Joi.number(),
-}).label("TrackPlus");
-
-export const TrackArraySpec = Joi.array().items(TrackSpecPlus).label("TrackArray");
-
-export const PlaylistSpec = Joi.object()
-  .keys({
-    title: Joi.string().required().example("Beethoven Sonatas"),
+    name: Joi.string().required().example("Dublin"),
+    latitude: Joi.number().required().example(53.3),
+    longitude: Joi.number().required().example(-6.3),
+    description: Joi.string().allow("").optional().example("Dublin is the capital city of Ireland."),
     userid: IdSpec,
-    tracks: TrackArraySpec,
   })
-  .label("Playlist");
+  .label("Location");
 
-export const PlaylistSpecPlus = PlaylistSpec.keys({
+export const LocationSpecPlus = LocationSpec.keys({
   _id: IdSpec,
   __v: Joi.number(),
-}).label("PlaylistPlus");
+}).label("LocationPlus");
 
-export const PlaylistArraySpec = Joi.array().items(PlaylistSpecPlus).label("PlaylistArray");
+export const LocationArraySpec = Joi.array().items(LocationSpecPlus).label("LocationArray");
 
 export const JwtAuth = Joi.object()
   .keys({

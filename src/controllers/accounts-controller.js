@@ -1,9 +1,12 @@
+
 import { db } from "../models/db.js";
+import { UserSpec,UserCredentialsSpec } from "../models/joi-schemas.js";
 
 export const accountsController = {
   index: {
     auth: false,
     handler: function (request, h) {
+      request.log("Display main page");
       return h.view("main", { title: "Welcome" });
     },
   },
@@ -15,6 +18,7 @@ export const accountsController = {
         title: "User",
         user: loggedInUser, 
       };
+      console.log("Displaying User page");
       return h.view("user", viewData);
     },
   },
@@ -22,12 +26,16 @@ export const accountsController = {
   editUserDetails: {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials; 
-      const updatedUser = {
-        firstName: request.body.firstName,
-        lastName: request.body.lastName, 
-        email:request.body.email,
-      };
-      await db.userStore.updatedUser(loggedInUser,updatedUser);
+      const updatedUser = request.payload;
+      await db.userStore.updateUser(loggedInUser,updatedUser);
+      return h.redirect("user");
+    },
+  },
+
+  deleteAccount: {
+    handler: async function (request, h) {
+      const loggedInUser = request.auth.credentials; 
+      await db.userStore.deleteAllUsers()
       return h.redirect("user");
     },
   },
@@ -40,6 +48,13 @@ export const accountsController = {
   },
   signup: {
     auth: false,
+    validate: {
+      payload: UserSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("signup-view", { title: "Sign up error", errors: error.details }).takeover().code(400);
+      },
+    },
     handler: async function (request, h) {
       const user = request.payload;
       await db.userStore.addUser(user);
@@ -54,6 +69,13 @@ export const accountsController = {
   },
   login: {
     auth: false,
+    validate: {
+      payload: UserCredentialsSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("login-view", { title: "Log in error", errors: error.details }).takeover().code(400);
+      },
+    },
     handler: async function (request, h) {
       const { email, password } = request.payload;
       const user = await db.userStore.getUserByEmail(email);
@@ -64,6 +86,7 @@ export const accountsController = {
       return h.redirect("/dashboard");
     },
   },
+
   async validate(request, session) {
     const user = await db.userStore.getUserById(session.id);
     if (!user) {
@@ -71,9 +94,11 @@ export const accountsController = {
     }
     return { valid: true, credentials: user };
   },
+
   logout: {
     auth: false,
     handler: function (request, h) {
+      request.cookieAuth.clear();
       return h.redirect("/");
     },
   },

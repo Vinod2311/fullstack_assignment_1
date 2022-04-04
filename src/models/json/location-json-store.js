@@ -20,15 +20,9 @@ export const locationJsonStore = {
     return location;
   },
 
-  async getLocationsById(id) {
+  async getLocationById(id) {
     await db.read();
-    let list = db.data.locations.find((location) => location._id === id);
-    if (list) {
-      list.tracks = await trackJsonStore.getTracksByLocationsId(list._id);
-    } else {
-      list = null;
-    }
-    return list;
+    return db.data.locations.filter((location) => location._id === id);
   },
 
   async getUserLocations(userid) {
@@ -36,9 +30,11 @@ export const locationJsonStore = {
     return db.data.locations.filter((location) => location.userid === userid);
   },
 
-  async deleteLocationsById(id) {
+  async deleteLocationById(id) {
     await db.read();
     const index = db.data.locations.findIndex((location) => location._id === id);
+
+    console.log("location index:", index);
     if (index !== -1) db.data.locations.splice(index, 1);
     await db.write();
   },

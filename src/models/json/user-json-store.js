@@ -40,7 +40,7 @@ export const userJsonStore = {
     await db.write();
   },
 
-  async deleteAll() {
+  async deleteAllUsers() {
     db.data.users = [];
     await db.write();
   },
@@ -48,7 +48,6 @@ export const userJsonStore = {
   async updateUser(user,updatedUser) {
     user.firstName=updatedUser.firstName;
     user.lastName=updatedUser.lastName;
-    user.email=updatedUser.email;
     await db.write();
   }
 };

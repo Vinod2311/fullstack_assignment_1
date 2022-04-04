@@ -1,18 +1,25 @@
-<form class="ui segment form" action="/dashboard/addLocation" method="POST">
-    <h2>Add location</h2>
-    <div class="three fields">
-        <div class="field">
-            <label>Name</label>
-            <input placeholder="Name" type="text" minlength="1" maxlength="10" name="name" required>
-        </div>
-        <div class="field">
-            <label>Latitude</label>
-            <input placeholder="Latitude" type="number" min="-90" max="90" step="0.01" name="lat" required>
-        </div>
-        <div class="field">
-            <label>Longitude</label>
-            <input placeholder="Longitude" type="number" min="-90" max="90" step="0.01" name="lng" required>
-        </div>
-    </div>
-    <button class="ui blue submit button">Add Location</button>
-</form>
+<div class="box">   
+    <section class="section">
+        <h1 class="title">Add Location</h1>
+        <form action="/dashboard/addLocation" method="POST">
+                <div class="field">
+                    <label class="label">Name</label>
+                    <input class="input" placeholder="Name" type="text" name="name">
+                </div>
+                <div class="field">
+                    <label class="label">Latitude</label>
+                    <input class="input" placeholder="Latitude" type="number" step="0.1" name="latitude" >
+                </div>
+                <div class="field">
+                    <label class="label">Longitude</label>
+                    <input class="input" placeholder="Longitude" type="number" step="0.1" name="longitude">
+                </div>
+                <div>
+                    <label class="label">Description</label>
+                    <textarea class="textarea" placeholder="Description" type="text" name="description"></textarea>
+                </div>
+
+            <button class="button is-link">Add Location</button>
+        </form>
+    </section>
+</div>

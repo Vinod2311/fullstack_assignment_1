@@ -5,6 +5,7 @@
       "latitude": "53.3",
       "longitude": "-6.3",
       "userid": "4bf62104-5ae8-463c-bb71-ee8cc0bf850a",
+      "description": "Dublin is the capital city of Ireland.",
       "_id": "70c42379-8d66-4580-b236-47c5c913301a"
     },
     {
@@ -12,7 +13,24 @@
       "latitude": "51.9",
       "longitude": "-8.5",
       "userid": "4bf62104-5ae8-463c-bb71-ee8cc0bf850a",
+      "description": "Cork is second largest city in Ireland.",
       "_id": "0793eeae-3eb5-4695-8d69-7350625d5282"
+    },
+    {
+      "name": "Galway",
+      "latitude": 53.3,
+      "longitude": -9.1,
+      "userid": "4bf62104-5ae8-463c-bb71-ee8cc0bf850a",
+      "description": "Galway is a harbour city on the west coast of Ireland.",
+      "_id": "93eb4e8b-5dd2-4238-99f9-88c8a96e91e6"
+    },
+    {
+      "name": "Waterford",
+      "latitude": 52.3,
+      "longitude": -7.1,
+      "description": "Waterford is Ireland's oldest city.",
+      "userid": "4bf62104-5ae8-463c-bb71-ee8cc0bf850a",
+      "_id": "12ad1c08-d1d1-4da3-b669-b87a2a90dcda"
     }
   ]
 }
