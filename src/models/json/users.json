@@ -3,14 +3,14 @@
     {
       "firstName": "Homer",
       "lastName": "Simpson",
-      "email": "homer@simpson.ie",
+      "email": "homer@simpson.com",
       "password": "secret",
       "_id": "4bf62104-5ae8-463c-bb71-ee8cc0bf850a"
     },
     {
       "firstName": "Marge",
       "lastName": "Simpson",
-      "email": "marge@simpson.ie",
+      "email": "marge@simpson.com",
       "password": "secret",
       "_id": "3e0381a9-a39e-449d-b741-af4bd824f579"
     }

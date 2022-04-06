@@ -12,6 +12,12 @@ import { db } from "./models/db.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const result = dotenv.config();
+if (result.error) {
+  console.log(result.error.message);
+  process.exit(1);
+}
+
 async function init() {
   const server = Hapi.server({
     port: 3000,
@@ -22,8 +28,8 @@ async function init() {
   await server.register(Cookie);
    server.auth.strategy("session", "cookie", {
     cookie: {
-      name: "assignment",
-      password: "secretpasswordnotrevealedtoanyone",
+      name: process.env.cookie_name,
+      password: process.env.cookie_password,
       isSecure: false,
     },
     redirectTo: "/",
