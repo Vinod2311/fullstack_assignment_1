@@ -25,7 +25,9 @@ export const maggie = {
       password: "secret",
     },
   ];
-  
+
 export const testLocations = [
     
 ];
+
+export const serviceUrl = "http://localhost:3000";

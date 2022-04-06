@@ -1,11 +1,11 @@
 import { assert } from "chai";
-import { db } from "../src/models/db.js";
-import { maggie, testUsers } from "./fixtures.js";
+import { db } from "../../src/models/db.js";
+import { maggie, testUsers } from "../fixtures.js";
 
-suite("User API tests", () => {
+suite("User model tests", () => {
 
   setup(async () => {
-    db.init("json");
+    db.init("");
     await db.userStore.deleteAllUsers();
   });
 

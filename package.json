@@ -7,11 +7,12 @@
   "scripts": {
     "start": "node src/server.js",
     "lint": "eslint . --ext .js",
-    "test": "mocha --ui tdd test/**.js"
+    "test": "mocha --ui tdd test/**/*.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "axios": "^0.26.1",
     "chai": "^4.3.6",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -21,8 +22,10 @@
     "prettier": "^2.5.0"
   },
   "dependencies": {
+    "@hapi/boom": "^9.1.4",
     "@hapi/cookie": "^11.0.2",
     "@hapi/hapi": "^20.2.1",
+    "@hapi/inert": "^6.0.5",
     "@hapi/vision": "^6.1.0",
     "dotenv": "^16.0.0",
     "handlebars": "^4.7.7",

@@ -26,7 +26,7 @@ export const userMemStore = {
     users.splice(index, 1);
   },
 
-  async deleteAll() {
+  async deleteAllUsers() {
     users = [];
   },
 };

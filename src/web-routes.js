@@ -14,5 +14,5 @@ export const webRoutes = [
   { method: "GET", path: "/location/{id}", config: dashboardController.location },
   { method: "GET", path: "/deleteLocation/{id}", config: dashboardController.deleteLocation },
   { method: "POST", path: "/dashboard/addLocation", config: dashboardController.addLocation },
-  { method: "GET", path: "/{param*}", config: dashboardController.error },
+  { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } }
 ];
