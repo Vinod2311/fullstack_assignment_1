@@ -5,7 +5,7 @@ export const dashboardController = {
   index: {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials; 
-      const locations = await db.locationStore.getAllLocations();
+      const locations = await db.locationStore.getUserLocations(loggedInUser._id);
       const viewData = {
         title: "Dashboard",
         user: loggedInUser, 
@@ -19,20 +19,29 @@ export const dashboardController = {
     validate: {
       payload: LocationSpec,
       options: { abortEarly: false },
-      failAction: function (request, h, error) {
-        return h.view("dashboard-view", { title: "Add Location error", errors: error.details }).takeover().code(400);
+      failAction: async function (request, h, error) {
+        const loggedInUser = request.auth.credentials; 
+        const locations = await db.locationStore.getUserLocations(loggedInUser._id);
+        const viewData = {
+          title: "Add Location error",
+          user: loggedInUser, 
+          locations: locations,
+          errors: error.details
+        };
+        console.log(viewData);
+        return h.view("dashboard-view",viewData).takeover().code(400);
       },
     },
     handler: async function (request, h) {
       const loggedInUser= request.auth.credentials;
+      const userid = loggedInUser._id;
       const newLocation = {
         name: request.payload.name,
         latitude: request.payload.latitude,
         longitude: request.payload.longitude,
         description: request.payload.description,
-        userid: loggedInUser._id,
       };
-      await db.locationStore.addLocation(newLocation);
+      await db.locationStore.addLocation(userid,newLocation);
       return h.redirect("/dashboard");
     },
   },

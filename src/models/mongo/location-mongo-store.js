@@ -9,15 +9,14 @@ export const locationMongoStore = {
   async getLocationById(id) {
     if (id) {
       const location = await Location.findOne({ _id: id }).lean();
-      if (location) {
-        location.tracks = await trackMongoStore.getTracksByLocationId(location._id);
-      }
       return location;
     }
     return null;
   },
 
-  async addLocation(location) {
+
+  async addLocation(userid,location) {
+    location.userid = userid;
     const newLocation = new Location(location);
     const locationObj = await newLocation.save();
     return this.getLocationById(locationObj._id);

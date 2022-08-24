@@ -15,11 +15,11 @@
             }).addTo(myMap);
             let i = 0;
             let marker = [];
-                {{#each location}}
-                marker.push(L.marker([{{latitude}}, {{longitude}}]).addTo(myMap));
+                
+                marker.push(L.marker([{{location.latitude}}, {{location.longitude}}]).addTo(myMap));
                 marker[i].bindPopup(" {{name}} ")
                 i++;
-                {{/each}}
+                
 
         </script>
         </div>
@@ -34,11 +34,11 @@
                 <img src="/images/cityscape.jpg" alt="Location image">
             </figure>
             <p>
-                {{#each location}}
-                {{description}} 
-                <a href="../deleteLocation/{{_id}}" class="button">
-                <i class="fas fa-trash"></i></a>
-                {{/each}}
+                
+                {{location.description}} 
+                <a href="/deleteLocation/{{location._id}}" class="button">
+                <i class="fas fa-trash"></i>Delete Location</a>
+                
             </p>
         </section>
     </div>

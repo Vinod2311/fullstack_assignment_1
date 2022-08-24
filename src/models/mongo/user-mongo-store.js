@@ -1,3 +1,4 @@
+import { db } from "../db.js";
 import { User } from "./user.js";
 
 export const userMongoStore = {
@@ -36,5 +37,9 @@ export const userMongoStore = {
 
   async deleteAll() {
     await User.deleteMany({});
+  },
+
+  async updateUser(id,updatedUser) {
+    await User.findByIdAndUpdate({ id},{ "firstName":"changed"}).lean();
   }
 };

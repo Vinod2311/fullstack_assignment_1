@@ -27,7 +27,7 @@ export const accountsController = {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials; 
       const updatedUser = request.payload;
-      await db.userStore.updateUser(loggedInUser,updatedUser);
+      await db.userStore.updateUser(loggedInUser._id,updatedUser);
       return h.redirect("user");
     },
   },

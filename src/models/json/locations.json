@@ -31,6 +31,14 @@
       "description": "Waterford is Ireland's oldest city.",
       "userid": "4bf62104-5ae8-463c-bb71-ee8cc0bf850a",
       "_id": "12ad1c08-d1d1-4da3-b669-b87a2a90dcda"
+    },
+    {
+      "name": "Wexford",
+      "latitude": 52.3,
+      "longitude": -6.5,
+      "description": "Wexford is located on the southeast coast of Ireland.",
+      "userid": "4bf62104-5ae8-463c-bb71-ee8cc0bf850a",
+      "_id": "cfde1ace-1c3b-4c9a-b214-ec75896b72d1"
     }
   ]
 }

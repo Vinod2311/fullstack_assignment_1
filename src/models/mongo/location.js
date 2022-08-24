@@ -3,7 +3,10 @@ import Mongoose from "mongoose";
 const { Schema } = Mongoose;
 
 const locationSchema = new Schema({
-  title: String,
+  name: String,
+  latitude: String,
+  longitude: String,
+  description: String,
   userid: {
     type: Schema.Types.ObjectId,
     ref: "User",

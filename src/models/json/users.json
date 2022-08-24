@@ -27,6 +27,13 @@
       "email": "maggie@simpson.com",
       "password": "secret",
       "_id": "4566b212-e82d-41db-b7cd-483a1143d295"
+    },
+    {
+      "firstName": "vinod",
+      "lastName": "yadav",
+      "email": "vinod@yadav.com",
+      "password": "secret",
+      "_id": "2f3f9abf-ccca-4683-8ba9-a36f6047178b"
     }
   ]
 }
